@@ -53,11 +53,19 @@ namespace OpenAI_API
     /// </summary>
     public class OpenRouterError
     {
+        /// <summary>
+        /// error code
+        /// </summary>
         [JsonProperty("code")]
         public int Code { get; set; }
+        /// <summary>
+        /// error message
+        /// </summary>
         [JsonProperty("message")]
         public string Message { get; set; }
-
+        /// <summary>
+        /// metadata    
+        /// </summary>
         [JsonProperty("metadata")]
         [JsonConverter(typeof(MetadataJsonConverter))]
         public string MetaData { get; set; }
@@ -115,6 +123,9 @@ namespace OpenAI_API
         [JsonIgnore]
         public string OpenaiVersion { get; internal set; }
 
+        /// <summary>
+        /// The error object returned from the API, if any
+        /// </summary>
         [JsonProperty("error")]
         public OpenRouterError Error { get; set; }
     }
